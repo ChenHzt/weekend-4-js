@@ -5,8 +5,9 @@ const countDuplicates = (str) => {
     .toLowerCase()
     .split('')
     .forEach((element) => (count[element] = (count[element] || 0) + 1));
-  count.forEach((element) => (element > 1 ? (res += 1) : null));
+  for (const [key, value] of Object.entries(count)) value > 1 ? res++ : null;
   return res;
 };
 
 console.log(countDuplicates('aabbcdcee'));
+console.log(countDuplicates('Indivisibilities'));
